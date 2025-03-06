@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+<<<<<<< HEAD
         // Stage 1: Checkout Code
         stage('Checkout') {
             steps {
@@ -10,29 +11,49 @@ pipeline {
         }
 
         // Stage 2: Build the Project
+=======
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/nayans-ss/simple-java-maven-app.git'
+            }
+        }
+
+>>>>>>> 1b1405e (Added Jenkinsfile for Jenkins pipeline)
         stage('Build') {
             steps {
                 sh 'mvn clean package'
             }
         }
 
+<<<<<<< HEAD
         // Stage 3: Run Unit Tests
+=======
+>>>>>>> 1b1405e (Added Jenkinsfile for Jenkins pipeline)
         stage('Test') {
             steps {
                 sh 'mvn test'
             }
         }
 
+<<<<<<< HEAD
         // Stage 4: Simulate Deployment
         stage('Deploy') {
             steps {
                 sh 'mkdir -p /tmp/deploy'
                 sh 'cp target/my-app-1.0-SNAPSHOT.jar /tmp/deploy/'
                 echo 'Application deployed to /tmp/deploy/'
+=======
+        stage('Deploy') {
+            steps {
+                sh 'mkdir -p /tmp/deploy'
+                sh 'cp target/*.jar /tmp/deploy/'
+                echo 'Application deployed successfully!'
+>>>>>>> 1b1405e (Added Jenkinsfile for Jenkins pipeline)
             }
         }
     }
 
+<<<<<<< HEAD
     // Post-build actions
     post {
         success {
@@ -44,3 +65,15 @@ pipeline {
     }
 }
  
+=======
+    post {
+        success {
+            echo '✅ Pipeline executed successfully!'
+        }
+        failure {
+            echo '❌ Pipeline failed!'
+        }
+    }
+}
+
+>>>>>>> 1b1405e (Added Jenkinsfile for Jenkins pipeline)
